@@ -18,9 +18,13 @@ Package the source with node platform for darwing and linux targets
 ```
 npx pkg --targets node16-macos-x64,node16-macos-arm64,node16-linux-x64 build.cjs
 ```
-Rename each binary to protoc-gen-es and create an archive
+For every os/arch: rename the binary to protoc-gen-es and create a tar.gz archive 
 ```
 tar -czvf linux-amd64.tar.gz protoc-gen-es
+```
+Compute hashes
+```
+find . -type f -exec shasum -a 256 {} \; > sha256.txt\n
 ```
 Uninstall protoc-gen-es package
 ```
